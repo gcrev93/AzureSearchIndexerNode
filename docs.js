@@ -5,7 +5,7 @@ var client = AzureSearch({
     key: process.env.SEARCH_KEY
 });
 
-var indexName = ''; //lowercase only
+var indexName = ''; //REQUIRED(lowercase only)
 
 createIndex();
 
@@ -14,6 +14,12 @@ function createIndex() {
     var schema = {
         name: indexName,
         fields:
+        // create fields to equal those in your JSON docs; here is an example. compare to docs created in uploadData()
+        //change, delete, add and etc to your liking
+        //note you need ONE of these fields to be your key. key values can only have numbers and letters. 
+        //To choose whether it is searchable, filterable, retrievable, sortable and facetable, 
+        //look at this doc https://docs.microsoft.com/en-us/rest/api/searchservice/create-index,
+        //under Index Attributes section
         [{
             name: 'id',
             type: 'Edm.String',

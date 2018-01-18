@@ -5,9 +5,10 @@ var client = AzureSearch({
     key: process.env.SEARCH_KEY
 });
 
-var indexName = 'gabbytestindex',
-    dataName = 'cosmosdt4',
-    collectionname = '';
+var indexName = '', //REQUIRED(lowercase only): name of the new index
+    dataName = '', // REQUIRED(lowercase only): name of new data source
+    databaseName = '' // REQUIRED: name of DB created in CosmosDB account
+    collectionName = ''; // REQUIRED: name of collection\table
 
 createIndex();
 
@@ -15,7 +16,12 @@ createIndex();
 function createIndex() {
     var schema = {
         name: indexName,
-        fields:
+        fields: 
+        //fields should match that of the DB columns; Add as many as you need
+        //note you need ONE of these fields to be your key. key values can only have numbers and letters. 
+        //To choose whether it is searchable, filterable,
+        //retrievable, sortable and facetable, look at this doc https://docs.microsoft.com/en-us/rest/api/searchservice/create-index,
+        //under Index Attributes section
         [{
             name: 'id',
             type: 'Edm.String',
@@ -27,7 +33,7 @@ function createIndex() {
             key: true
         },
         {
-            name: 'juice',
+            name: '', //change field name
             type: 'Edm.String',
             searchable: true,
             filterable: false,
@@ -37,7 +43,7 @@ function createIndex() {
             key: false
         },
         {
-            name: 'name',
+            name: '', //change field name
             type: 'Edm.String',
             searchable: true,
             filterable: false,
@@ -64,16 +70,13 @@ function createIndex() {
     });
 }
 
-
 function createDataSource() {
     var options = {
         name: dataName,
-        type: "documentdb",
-        credentials: { connectionString: process.env.COSMOS_CONNSTR},
-        container: { name: "testinggabrielle", query: null }
+        type: "documentdb", //DO NOT CHANGE
+        credentials: { connectionString: process.env.COSMOS_CONNSTR + 'Database='+ databaseName},
+        container: { name: collectionName, query: null }
     }
-
-
 
     client.createDataSource(options, function (err, data) {
         if (err)
@@ -88,18 +91,10 @@ function createDataSource() {
 
 function uploadData() {
     var schema = {
-        name: 'cosmosind',
+        name: 'cosmosind', //Name of indexer, can be anything you want, but data will be uploaded to index created above
         dataSourceName: dataName, //Required. The name of an existing data source
         targetIndexName: indexName, //Required. The name of an existing index
     };
-
-    // create/update an indexer
-    /*client.createIndexer(schema, function (err, schema) {
-        if (err)
-        console.log(err);
-    else
-        console.log(schema);
-    });*/
 
     client.createIndexer(schema, function (err, schema) {
         if (err)

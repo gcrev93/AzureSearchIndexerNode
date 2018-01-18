@@ -1,4 +1,5 @@
-#Azure Search with Node.js
+# Azure Search with Node.js
+
 This repo is created to create indexes and upload data for those using Azure search. 
 
 *cosmos.js* will allow you to create an index and upload documents from a collection in your cosmos DB

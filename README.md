@@ -1,4 +1,4 @@
-# Azure Search with Node.js
+# Azure Search Examples with Node.js
 
 This repo will allow you to create indexes and upload documents to an Azure Search resource. This code that can act as an alternative to using the Azure portal or making continous REST calls to add indexes and documents to your Azure Search resource. An example of its use:
 Code seen in *docs.js* was used as a skeleton for migrating data from Elastic Search + Kibana to Azure Search.

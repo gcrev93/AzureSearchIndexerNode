@@ -5,7 +5,7 @@ var client = AzureSearch({
     key: process.env.SEARCH_KEY
 });
 
-var indexName = 'gabbytestindexdocs'; //lowercase only
+var indexName = ''; //lowercase only
 
 createIndex();
 

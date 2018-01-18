@@ -9,9 +9,8 @@ var indexName = 'gabbytestindex',
     dataName = 'cosmosdt4',
     collectionname = '';
 
-//createIndex();
-//createDataSource();
-uploadData();
+createIndex();
+
 
 function createIndex() {
     var schema = {

@@ -1,12 +1,11 @@
 # Azure Search with Node.js
 
-This repo is created to create indexes and upload data for those using Azure search. 
+This repo will allow you to create indexes and upload documents to an Azure Search resource. This code that can act as an alternative to using the Azure portal or making continous REST calls to add indexes and documents to your Azure Search resource. An example of its use:
+Code seen in *docs.js* was used as a skeleton for migrating data from Elastic Search + Kibana to Azure Search.
 
-*cosmos.js* will allow you to create an index and upload documents from a collection in your cosmos DB
+- *cosmos.js* will allow you to create an index and upload documents from a collection in your cosmos DB
 
-*docs.js* will allow you to create an index and upload custom documents to the index. 
-
-This contains code that can act as an alternative to using the Azure portal or making continous REST calls to add indexes and documents to your Azure Search resource.
+- *docs.js* will allow you to create an index and upload custom documents to the index. 
 
 **Before** using these files you will need to:
 1. Create an Azure Search resource in your Azure portal. You can look here for documentation on how to do so [HERE](https://docs.microsoft.com/en-us/azure/search/search-create-service-portal)

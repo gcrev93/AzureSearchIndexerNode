@@ -1,0 +1,16 @@
+{
+  "name": "node_azsearch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-search": "0.0.19",
+    "azure-storage": "^2.7.0",
+    "dotenv": "^4.0.0"
+  }
+}
